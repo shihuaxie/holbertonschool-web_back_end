@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+"""
+Return the floor of a float n as an integer
+"""
+
 import math
 
 
