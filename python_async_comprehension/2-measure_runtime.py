@@ -4,7 +4,7 @@ Measure runtime of 4 parallel async comprehensions
 """
 
 import time
-from asyncio import gather
+import asyncio
 
 
 async_comprehension = __import__('1-async_comprehension').async_comprehension
@@ -18,12 +18,8 @@ async def measure_runtime() -> float:
     start = time.time()
 
     # Run 4 coroutines concurrently
-    await gather(
-        async_comprehension(),
-        async_comprehension(),
-        async_comprehension(),
-        async_comprehension(),
-    )
+    tasks = [async_comprehension() for _ in range(4)]
+    await asyncio.gather(*tasks)
 
     end = time.time()
     return end - start
