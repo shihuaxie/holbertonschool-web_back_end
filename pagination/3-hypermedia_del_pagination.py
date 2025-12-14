@@ -9,6 +9,9 @@ from typing import List, Dict
 
 
 class Server:
+    """
+    Server class to paginate a database of popular baby names.
+    """
     DATA_FILE = "Popular_Baby_Names.csv"
 
     def __init__(self):
@@ -39,11 +42,14 @@ class Server:
         assert isinstance(index, int) and index >= 0
         assert isinstance(page_size, int) and page_size > 0
 
-        data = []
         indexed = self.indexed_dataset()
-        current_index = index
+        assert index <= max(indexed.keys())
 
-        while len(data) < page_size and current_index < len(indexed):
+        data = []
+        current_index = index
+        max_index = max(indexed.keys())
+
+        while len(data) < page_size and current_index <= max_index:
             if current_index in indexed:
                 data.append(indexed[current_index])
             current_index += 1
