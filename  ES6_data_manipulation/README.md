@@ -1,1 +1,1 @@
-This is a readme for ES6 practice.
+This is a readme for es6 data.
