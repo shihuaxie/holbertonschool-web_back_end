@@ -17,7 +17,7 @@ function readDatabase(path) {
       }
 
       const lines = data.split('\n').filter((line) => line.trim() !== '');
-      const students = lines.slice(1); // remove header
+      const students = lines.slice(1);
 
       const output = [];
       output.push(`Number of students: ${students.length}`);
@@ -37,8 +37,7 @@ function readDatabase(path) {
 
       Object.keys(groups).forEach((field) => {
         output.push(
-           `Number of students in ${field}: ${groups[field].length}. List: ${groups[field].join(', ')}`,
-          )
+          `Number of students in ${field}: ${groups[field].length}. List: ${groups[field].join(', ')}`,
         );
       });
 
@@ -68,14 +67,12 @@ const app = http.createServer((req, res) => {
         res.end(report);
       })
       .catch(() => {
-        // The project expects exactly this text on error for /students
         res.end('Cannot load the database');
       });
 
     return;
   }
 
-  // For any other endpoint, keep it simple (not specified, but safe)
   res.end('Hello Holberton School!');
 });
 
