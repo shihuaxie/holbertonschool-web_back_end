@@ -25,7 +25,7 @@ function countStudents(path) {
       }
 
       // Split into lines and remove empty lines (e.g., trailing newline)
-      const lines = data.split('\n').filter(line => line.trim() !== '');
+      const lines = data.split('\n').filter((line) => line.trim() !== '');
 
       // If only header (or empty content), there are no students
       if (lines.length <= 1) {
@@ -53,7 +53,7 @@ function countStudents(path) {
       });
 
       // Log per-field stats
-      Object.keys(groups).forEach(field => {
+      Object.keys(groups).forEach((field) => {
         const list = groups[field].join(', ');
         console.log(`Number of students in ${field}: ${groups[field].length}. List: ${list}`);
       });
