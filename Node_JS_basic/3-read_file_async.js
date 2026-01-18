@@ -43,7 +43,7 @@ function countStudents(path) {
       // Group by field
       const groups = {};
 
-      students.forEach(line => {
+      students.forEach((line) => {
         const cols = line.split(',');
         const firstname = cols[0];
         const field = cols[cols.length - 1];
