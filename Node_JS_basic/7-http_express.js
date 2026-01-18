@@ -40,9 +40,7 @@ function readDatabase(path) {
 
       Object.keys(groups).forEach((field) => {
         output.push(
-          `Number of students in ${field}: ${groups[field].length}. List: ${groups[field].join(
-            ', '
-          )}`
+          `Number of students in ${field}: ${groups[field].length}. List: ${groups[field].join(', ')}`,
         );
       });
 
