@@ -39,7 +39,7 @@ function readDatabase(path) {
         output.push(
           `Number of students in ${field}: ${groups[field].length}. List: ${groups[field].join(
             ', '
-          )}`
+          )}`,
         );
       });
 
