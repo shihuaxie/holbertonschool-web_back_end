@@ -13,7 +13,7 @@ function countStudents(path) {
 
   // 2) Split file into lines
   // Remove empty lines (CSV can have empty lines at the end)
-  const lines = data.split('\n').filter(line => line.trim() !== '');
+  const lines = data.split('\n').filter((line) => line.trim() !== '');
 
   // If there is only the header (or empty file), there are no students
   if (lines.length <= 1) {
@@ -35,7 +35,7 @@ function countStudents(path) {
   // }
   const groups = {};
 
-  students.forEach(line => {
+  students.forEach((line) => {
     const cols = line.split(',');
 
     // According to project CSV format:
@@ -56,7 +56,7 @@ function countStudents(path) {
 
   // 6) Log results for each field
   // Output format must match the checker requirement exactly
-  Object.keys(groups).forEach(field => {
+  Object.keys(groups).forEach((field) => {
     const list = groups[field].join(', ');
     console.log(`Number of students in ${field}: ${groups[field].length}. List: ${list}`);
   });
