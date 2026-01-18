@@ -16,7 +16,7 @@ function readDatabase(path) {
         return;
       }
 
-      const lines = data.split('\n').filter(line => line.trim() !== '');
+      const lines = data.split('\n').filter((line) => line.trim() !== '');
       const students = lines.slice(1); // remove header
 
       const output = [];
@@ -24,7 +24,7 @@ function readDatabase(path) {
 
       const groups = {};
 
-      students.forEach(line => {
+      students.forEach((line) => {
         const cols = line.split(',');
         const firstname = cols[0];
         const field = cols[cols.length - 1];
@@ -35,7 +35,7 @@ function readDatabase(path) {
         groups[field].push(firstname);
       });
 
-      Object.keys(groups).forEach(field => {
+      Object.keys(groups).forEach((field) => {
         output.push(
           `Number of students in ${field}: ${groups[field].length}. List: ${groups[field].join(
             ', '
@@ -65,7 +65,7 @@ const app = http.createServer((req, res) => {
     res.write('This is the list of our students\n');
 
     readDatabase(database)
-      .then(report => {
+      .then((report) => {
         res.end(report);
       })
       .catch(() => {
